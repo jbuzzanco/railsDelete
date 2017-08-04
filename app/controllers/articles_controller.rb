@@ -17,11 +17,20 @@ class ArticlesController < ApplicationController
     redirect_to @article
   end
 
+  # hard delete. completely removes record from database.
   def destroy
     @article = Article.find(params[:id])
     @article.destroy
 
     redirect_to articles_path
+  end
+
+  # soft delete attempt.
+  def archive
+    @article = Article.find(params[:id])
+    @article.update_attribute(:displayed, false)
+
+    redirect_to article_path
   end
 
   private

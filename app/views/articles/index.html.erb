@@ -13,7 +13,9 @@
       <td><%= link_to 'Show', article_path(article) %></td>
       <td><%= link_to 'Destroy', article_path(article),
               method: :delete,
-              data: {confirm: 'Are you sure?'} %></td>  
+              data: {confirm: 'Are you sure?'} %></td>
+      <td><%= link_to 'Archive', article_path(article),
+             data: {confirm: 'Are you sure you want to archive?'} %></td>
     </tr>
   <% end %>
 </table>
